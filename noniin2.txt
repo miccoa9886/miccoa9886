@@ -1,2 +1,0 @@
-http://learntocreategames.com/creating-a-2d-shooter/
-shoot direction 2d unity
