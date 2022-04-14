@@ -1,0 +1,67 @@
+using UnityEngine;
+using System.Collections;
+
+public class BallScript : MonoBehaviour {
+
+		Vector2 ballPosition;
+		Vector2 ballInitialForce;
+
+		public bool settomove8;
+		public int i18;public int i24;
+		public GameObject playerObject;
+		
+		// Use this for initialization
+		void Start () {
+
+
+				ballInitialForce = new Vector2 (0.0f,300.0f);
+				//settomove8 = false;	
+				ballPosition = transform.position;
+		}
+
+		void Update () {
+
+				if (Input.GetButtonDown ("Jump") == true) {
+
+
+						//if (!settomove8) {//falsessa aktivoidaan jumppia, truessa se liikkuu pallo vielä
+								//kopioiduista variable nimistä ei hahmota hyvin (useinkaan)
+								GetComponent<Rigidbody2D> ().isKinematic = false;
+								GetComponent<Rigidbody2D> ().AddForce (ballInitialForce);
+								i24 = i24 + 1;
+								//transform.position = ballPosition;
+								Debug.Log ("Called2 called2" + i24);
+						//}
+					
+				}
+
+	
+				
+				if ( transform.position.y < -6){
+						//pallon x pelaajan mukaan
+						ballPosition.x = playerObject.transform.position.x;
+						//pallon y alemmas pelaajaan nähden
+						ballPosition.y = 3.4f;
+
+						i18 = i18 + 1;
+
+						//ballInitialForce = new Vector2 (0.0f,0.0f);
+						GetComponent<Rigidbody2D> ().AddForce (ballInitialForce);
+
+						transform.position = ballPosition; //yritä siirtää pallo aloitusruutuun2 (ja pitää
+						//siellä kunnes space)
+
+
+
+
+						settomove8 = false; //palloa on kutsuttu kerran, tavoite kutsua kerran kerrallaan
+						//painikkeella
+						//space
+						Debug.Log ("Called called" + i18);
+	
+
+				}
+
+
+		}
+	}
