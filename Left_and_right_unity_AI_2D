@@ -1,0 +1,40 @@
+using System.Collections;
+using System.Collections.Generic;
+using UnityEngine;
+
+public class BlueBlockEspaceRoute : MonoBehaviour {
+		public float speedi = 0.5f;
+		public float speed = 0.5f;
+		private float rangeX = 2f;
+
+ //Up at the top with your variables:
+ private Vector3 dir = Vector3.left;
+
+
+		Vector2 positionToMoveTo = new Vector2(200.0f, 4.0f);
+		Vector2 startPos = new Vector2(0.0f, 0.0f);
+
+	// Use this for initialization
+	void Start () {
+				Vector2 startPos = transform.position;
+				Vector2 positionToMoveTo2 = startPos;
+	}
+	
+	// Update is called once per frame
+	void Update () {
+				
+
+
+				      transform.Translate(dir*speed);
+ 
+      if(transform.position.x <= -15){
+           dir = Vector3.right;
+      }else if(transform.position.x >= 15){
+           dir = Vector3.left;
+      }
+
+
+
+
+		}
+}
